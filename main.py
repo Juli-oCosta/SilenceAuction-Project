@@ -11,29 +11,35 @@ def winner(bidders):
   for dictionary in bidders:
     if bid > max_bid:
       max_bid = bid
-      winner_name = 
+      winner_name = ""
 
 over = False
 
 while not over:
-  input_name = input("Type in your name: ")
+  while True:
+    name_input = input("Type in your name: ")
+    if name_input.strip() != "":
+      break
+    else:
+      print("Invalid name! The name can not be empty or have only spaces.")
 
   while True:
     try:
-      bid_input = float(input("What is your bid?: $"))
+      bid_input = float(input("Type in you bid: $"))
       break
     except ValueError:
-      print("Invalid option. Please, type only a real price with numbers.")
+      print("Oops! That doesn't seem to be a valid number. Please enter the bid using only digits and a decimal point (e.g., 125.50).")
 
   auction(name = name_input, bid = bid_input)
 
   while True:
     confirmation_input = input("Are there any other bidders? Type 'yes or 'no").lower()
 
-    if confirmation_ input == 'yes':
+    if confirmation_input == 'yes':
       break
     elif confirmation_input == 'no':
       winner(bidders)
       over = True
+      break
     else:
       print("Invalid option. Please, type only 'yes' or 'no'.")
