@@ -1,3 +1,5 @@
+from IPython.display import clear_output
+
 bidders = []
 
 def auction(name, bid):
@@ -38,8 +40,10 @@ while not over:
     confirmation_input = input("Are there any other bidders? Type 'yes or 'no: ").lower()
 
     if confirmation_input == 'yes':
+      clear_output()
       break
     elif confirmation_input == 'no':
+      clear_output()
       winner(bidders)
       over = True
       break
