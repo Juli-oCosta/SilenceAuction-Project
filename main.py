@@ -9,9 +9,11 @@ def winner(bidders):
   winner_name = ""
 
   for dictionary in bidders:
-    if bid > max_bid:
-      max_bid = bid
-      winner_name = ""
+    if dictionary['bid'] > max_bid:
+      max_bid = dictionary['bid']
+      winner_name = dictionary['name']
+
+  print(f"The winner is {winner_name} with a bid of ${max_bid}")
 
 over = False
 
@@ -33,7 +35,7 @@ while not over:
   auction(name = name_input, bid = bid_input)
 
   while True:
-    confirmation_input = input("Are there any other bidders? Type 'yes or 'no").lower()
+    confirmation_input = input("Are there any other bidders? Type 'yes or 'no: ").lower()
 
     if confirmation_input == 'yes':
       break
