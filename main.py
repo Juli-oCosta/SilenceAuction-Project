@@ -1,4 +1,12 @@
-from IPython.display import clear_output
+import os
+
+def clear_screen():
+    # For Windows
+    if os.name == 'nt':
+        _ = os.system('cls')
+    # For macOS and Linux
+    else:
+        _ = os.system('clear')
 
 bidders = []
 
@@ -40,10 +48,10 @@ while not over:
     confirmation_input = input("Are there any other bidders? Type 'yes or 'no: ").lower()
 
     if confirmation_input == 'yes':
-      clear_output() # Works in Google Colab
+      clear_screen()
       break
     elif confirmation_input == 'no':
-      clear_output() # Works in Google Colab
+      clear_screen()
       winner(bidders)
       over = True
       break
